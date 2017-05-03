@@ -1,17 +1,24 @@
-const Koa = require('koa');
+'use strict';
+
+import Koa from 'koa';
+import views from 'koa-views';
+
+import router from './app/routes/index';
+
 const app = new Koa();
 
 // response
-app.use(ctx => {
-  ctx.body = 'Hello Koadfadsf多少发';
-});
+app
+  .use(views(__dirname + '/app/views', {  //模板引擎设置
+    map: { html: 'ejs'},
+    opts: {   //设置没有成功
+      open: '{{',
+      close: '}}'
+    }
+  }))
+  .use(router.routes());  //路由设置
 
-app.use(async (ctx, next) => {
-  const start = new Date();
-  await next();
-  const ms = new Date() - start;
-  console.log(`${ctx.method} ${ctx.url} - ${ms}ms`);
-});
+
 
 app.listen(2017,(err) => {
   if (err) console.log(err);
