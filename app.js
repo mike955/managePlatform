@@ -10,11 +10,7 @@ const app = new Koa();
 // response
 app
   .use(views(__dirname + '/app/views', {  //模板引擎设置
-    map: { html: 'ejs'},
-    opts: {   //设置没有成功
-      open: '{{',
-      close: '}}'
-    }
+    map: { hbs: 'handlebars' }
   }))
   .use(router.routes());  //路由设置
 
