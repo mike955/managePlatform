@@ -8,12 +8,12 @@ import router from './app/routes/index';
 
 const app = new Koa();
 
-// response
+// 注册中间件
 app
   .use(views(__dirname + '/app/views', {  //模板引擎设置
-    map: { hbs: 'handlebars' }
+    map: { html: 'ejs' }
   }))
-  .use(serve(__dirname + 'app/public'))
+  .use(serve(__dirname + '/app/public'))
   .use(router.routes());  //路由设置
 
 
