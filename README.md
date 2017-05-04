@@ -51,3 +51,13 @@ $ npm info underscore （如果上面配置正确这个命令会有字符串resp
   - 使用pm2进行代码部署
 
 ## 需求文档
+
+
+## 其他说明
+
+ - npm包网站：http://npmjs.org/
+ - github网站：http://github.com/
+ - nodejs官网：https://nodejs.org/en/
+
+
+## 目录工程说明

@@ -2,6 +2,7 @@
 
 import Koa from 'koa';
 import views from 'koa-views';
+import serve from 'koa-static';
 
 import router from './app/routes/index';
 
@@ -12,6 +13,7 @@ app
   .use(views(__dirname + '/app/views', {  //模板引擎设置
     map: { hbs: 'handlebars' }
   }))
+  .use(serve(__dirname + 'app/public'))
   .use(router.routes());  //路由设置
 
 
