@@ -99,8 +99,9 @@ exports.register = async function(ctx, next) {
     });
   } else if(result === 'success') {         //注册成功
 
-    await ctx.render('pages/user//login', {
-      title: '用户登录'
+    await ctx.redirect('/login', {
+      title: '用户登录',
+      info: ''
     })
   } else {
     await ctx.render('pages/user/register', {
