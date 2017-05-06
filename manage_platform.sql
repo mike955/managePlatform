@@ -16,8 +16,8 @@ DROP TABLE IF EXISTS `core_account`;
 
 CREATE TABLE `core_account` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '用户ID',
-  `username` int(11) NOT NULL COMMENT '用户名',
-  `password` varchar(255) NOT NULL COMMENT '密码',
+  `username` varchar(32) NOT NULL UNIQUE COMMENT '用户名',
+  `password` varchar(32) NOT NULL COMMENT '密码',
   `salt` varchar(6) NOT NULL COMMENT '随机数',
   `type` tinyint(4) unsigned NOT NULL COMMENT '账户类型(1:个人/高校教师,2:企业,3:政府工作人员)',
   `status` tinyint(4) unsigned NOT NULL COMMENT '状态，0停用，1可用',

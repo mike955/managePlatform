@@ -15,6 +15,7 @@
     "koa-views": "^6.0.2",
     "md5": "^2.2.1",
     "mysql": "^2.13.0",
+    "nodemon": "^1.11.0",
     "validate": "^3.0.1"
   },
   "devDependencies": {
@@ -25,7 +26,7 @@
     "babel-watch": "^2.0.6"
   },
   "scripts": {
-    "start": "babel-watch ./app.js",
+    "start": "nodemon ./app.js --exec babel-node",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

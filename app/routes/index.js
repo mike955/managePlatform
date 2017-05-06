@@ -3,26 +3,21 @@
 import Router from 'koa-router';
 
 import User from '../controllers/user';
+import Individual from '../controllers/individual';
+import Company from '../controllers/company';
+import Official from '../controllers/official';
 
 const router = new Router();
 
 router
-  .get('/', async (ctx, next) => {  //主页面
-      await ctx.render('index', {   //默认后缀名为html
-        title: 'managePlatform'
-      })
-  })
-  .get('/login', async (ctx, next) => {  //登录页面
-      await ctx.render('pages/user/login', {
-        title: '用户登录'
-      })
-  })
-  .get('/register', async (ctx, next) => {  //登录页面
-      await ctx.render('pages/user/register', {
-        title: '用户注册'
-      })
-  })
-  .post('/login', User.login)       //用户登录
+  .get('/', User.index)                 //主页面
+  .get('/login', User.showLogin)        //登录页面
+  .get('/register', User.showRegister)  //注册页面
+  .post('/login', User.login)           //用户登录操作
+  .post('/register', User.register)     //用户注册操作
+  .get('/individual/main', Individual.main)   //个人主页面
+  .get('/company/main', Company.main)         //企业主页面
+  .get('/official/main', Official.main)       //政府工作人员主页面
 
 
 export default router;
