@@ -10,9 +10,13 @@ import configs from '../configs/index';
 const knex = Knex(configs.knexConfig);
 
 export default class User{
-  static async insert(req, res) {
-    // 判断数据输入
 
-    let new_data = {};
+  //用户注册
+  static async insert(ctx, next) {
+    // 判断数据输入
+    let new_data = ctx;
+
+    //return new_data;
+    console.log(new_data);
   }
 }

@@ -2,6 +2,8 @@
 
 import Router from 'koa-router';
 
+import User from '../controllers/user';
+
 const router = new Router();
 
 router
@@ -20,10 +22,7 @@ router
         title: '用户注册'
       })
   })
-  .post('/login', async (ctx, next) => {
-    ctx.body = ctx.request.body;
-    console.log(ctx.body);
-  })
+  .post('/login', User.login)       //用户登录
 
 
 export default router;

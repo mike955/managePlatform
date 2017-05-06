@@ -1,6 +1,6 @@
 'use strict';
 
-moduel.exports = {
+module.exports = {
   host: 'localhost',
   port: 6379,
   famaily: 4,

@@ -5,6 +5,7 @@ import views from 'koa-views';
 import serve from 'koa-static';
 import bodyParser from 'koa-bodyparser';
 
+import config from './app/configs/index';
 import router from './app/routes/index';
 
 const app = new Koa();
@@ -20,7 +21,7 @@ app
 
 
 
-app.listen(2017,(err) => {
+app.listen(config.portConfig, (err) => {
   if (err) console.log(err);
-  console.log("Server starting at 10086")
+  console.log("Server starting at " + config.portConfig)
 });
