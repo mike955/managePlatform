@@ -4,13 +4,15 @@ import User from '../models/user';
 
 //main
 exports.index = async function(ctx, next){
+  //点击'Project name'， 回到主页，同时删除缓存session
+  delete ctx.session.user;
   await ctx.render('index', {   //默认后缀名为html
    title: 'managePlatform'
  })
 }
 
 exports.showLogin = async function(ctx, next) {
-    await ctx.render('pages/user/login', {
+  await ctx.render('pages/user/login', {
     title: '用户登录',
     info: ''
   });
@@ -54,10 +56,12 @@ exports.login = async function(ctx, next){
     })
   }
 
-  console.log(result);
+  //console.log(result);
 
   //验证成功
   if(result === 'success') {
+    ctx.session.user = user_data.username;
+    //console.log(ctx.session);
     if(user_data.optionsRadios === 'option1') {
       await ctx.redirect('/individual/main')
     }
@@ -67,6 +71,7 @@ exports.login = async function(ctx, next){
     }
 
     if(user_data.optionsRadios === 'option3') {
+      //console.log(12)
       await ctx.redirect('/official/main')
     }
   }
@@ -109,4 +114,12 @@ exports.register = async function(ctx, next) {
       info: '请重新注册'
     });
   }
+}
+
+
+//logout
+exports.logout = async function(ctx, next) {
+  //用户退出登录，删除session，回到主页面
+  delete ctx.session.user;
+  ctx.redirect('/');
 }
