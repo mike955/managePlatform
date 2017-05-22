@@ -25,6 +25,8 @@ $ npm info underscore （如果上面配置正确这个命令会有字符串resp
 3.redis安装--安装最新版本
 
  - 安装方法步骤：https://redis.io/download
+4.安装git
+$ sudo apt-get install git
 
 ## 技术方案
 1.技术选型
