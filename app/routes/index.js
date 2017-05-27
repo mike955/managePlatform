@@ -20,5 +20,8 @@ router
   .get('/company/main', Company.main)         //企业主页面
   .get('/official/main', Official.main)       //政府工作人员主页面
 
-
+  //政府人员路由
+  .get('/official/diary', Official.diary)  //办公
+  .get('/official/project', Official.project)
+  .get('/official/publicMessage', Official.publicMessage)
 export default router;

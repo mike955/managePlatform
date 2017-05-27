@@ -12,7 +12,7 @@ exports.main = async function(ctx, next){
       info: ''
     });
   } else {
-    await ctx.render('pages/Company/main', {   //默认后缀名为html
+    await ctx.render('pages/company/main', {   //默认后缀名为html
      title: '公司信息',
      user: ctx.session.user
    })

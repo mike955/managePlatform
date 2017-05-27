@@ -67,7 +67,7 @@ exports.login = async function(ctx, next){
     }
 
     if(user_data.optionsRadios === 'option2') {
-      await ctx.redirect('/compnany/main')
+      await ctx.redirect('/company/main')
     }
 
     if(user_data.optionsRadios === 'option3') {
